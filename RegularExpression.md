@@ -356,5 +356,12 @@ result = re.search(pattern, string)
 print(result)
 ```
 
-    <_sre.SRE_Match object; span=(0, 24), match='myEmail2075234323@qq.com'>
-    
+    <_sre.SRE_Match object; span=(0, 24), match='myEmail2075234323@qq.com'>   
+#### 6.4 匹配汉字
+```python
+line = "你好"
+regex_str = "(['u4E00-\u9FA5]+)"
+match_obj = re.match(regex_str, line)
+if match_obj:
+    print(match_obj.group())
+```
