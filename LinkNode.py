@@ -1,19 +1,23 @@
 # coding=utf8
 
-#### 链表
+# 链表
 
-#节点类
+# 节点类
+
+
 class LNode:
     def __init__(self, elem, next_=None):
         self.elem = elem
         self.next = next_
 
 # 异常类
+
+
 class LinkNodeUnderflow(ValueError):
     pass
 
 
-#TODO
+# TODO
 # 0. length
 # 1. is_empty
 # 2. prepend
@@ -28,13 +32,12 @@ class LList:
         self._head = None
 
     def get_length(self):
-        p, n = self._head, 0
-        if p.next is None:
-            return n
+        if self._head is None:
+            return 0
+        p, n = self._head, 1
         while p.next is not None:
             n += 1
             p = p.next
-        n += 1
         return n
 
     def is_empty(self):
@@ -91,6 +94,7 @@ class LList:
             p = q
         self._head = p
 
+
 def main():
     mList = LList()
     assert mList.is_empty(), "is empty LList"
@@ -103,9 +107,7 @@ def main():
     print("========++++++++"*8)
     mList.reverse()
     mList.printall()
-        
+
 
 if __name__ == "__main__":
     main()
-
-    
