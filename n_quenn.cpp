@@ -1,4 +1,5 @@
 #include <cstdio>
+#include<cmath>
 
 using namespace std;
 
@@ -19,10 +20,19 @@ void generateP(int index){
     }
     for(int x=1; x <= n; x ++){
         if(hashTable[x] == false){
-            P[index] = x;
-            hashTable[x] = true;
-            generateP(index + 1);
-            hashTable[x] = false;
+            bool flag = false;
+            for(int pre=1; pre < index; pre ++){
+                if(abs(pre - index) == abs(x - P[pre])){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){
+                P[index] = x;
+                hashTable[x] = true;
+                generateP(index + 1);
+                hashTable[x] = false;
+            }
         }
     }
 }
